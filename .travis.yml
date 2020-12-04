@@ -1,0 +1,15 @@
+# docker required super user permission so this is important
+sudo: required
+services:
+  - docker # we tell travis -> hey we need docker to run the script go to find and install it
+
+before_install:
+  # command that we use to build the imagte and run the container or other command to be run set up somethine we write it here
+
+  - docker build -t seenark/vue3test -f Dockerfile.dev .
+    ## this we build image for run test so we get image for use to run later
+
+script:
+  - docker run seenark/vue3test npm run test:unit -- --coverage
+    # npm run test:unit เป็นการ override คำสั่ง CMD ที่สั่งไว้ใน dockerfile
+    # -- --coverage เป็นคำสั่งเพื่อใช้สั่่งให้ออกจากการ test เมื่อทำการ test เสร็จแล้ว ที่ต้องใส่คำสั่งนี้ด้่วยก็เพราะว่า เมื่อเรารัน test:unit แล้ว เมื่อ test เสร็จมันจะรอคำสั่งถัดไป ไม่ยอมออกมาจากหน้า test ทำให้เราสั่งงานอื่่นต่อไปไม่ได้
