@@ -9,4 +9,5 @@ RUN npm run build
 # CMD ["npm", "start"]
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
