@@ -18,10 +18,10 @@ deploy:
   provider: elasticbeanstalk
   ## specified cloud provider name so Travis will setup the neeeded setting for us
   region:
-    "us-east-2"
+    "ap-southeast-1"
     ## see from our App URL find the regions like this
     ## ให้ไปหาดูที่ app url ของเรานั่นแหละ
-    ## http://dockervue3-env.eba-27kxmtxp.us-east-2.elasticbeanstalk.com/
+    ## DockerVue3-env.eba-szcn3cjn.ap-southeast-1.elasticbeanstalk.com
   app:
     "docker-vue3"
     ## name of the app that we named it when created in Elasticbeanstalk
@@ -29,7 +29,7 @@ deploy:
     "DockerVue3-env"
     ## see in environments next to the app name in application table ( first page of Elastic Beanstalk)
   bucket_name:
-    "elasticbeanstalk-us-east-2-954027254547"
+    "elasticbeanstalk-ap-southeast-1-954027254547"
     ## bucket name จะเป็นชื่อของ Amazon S3 ซึ่งเป็น storage ของ Amzon นี่แหละ มันจะถูกสร้างขึ้นมาให้เองอัตโนมัติเมื่อเราทำการสร้าง Elastic Beanstalk ขึ้นมา แต่เราจะต้องไปหามันเอง ให้ใช้ keyword S3 ไปค้นหา แล้วมองหา ชื่อ ตาม regions ประมาณนั้น
     ## bucket นี้จะเอาไว้เก็บ ไฟล์ zip ที่จะทำการ zip ไฟล์ใน github ทั้งหมดมาเก็บไว้ที่ S3 ก่อนแล้วจึงค่อยเอาออกมา deploy อีกทีนึง
   bucket_path:
